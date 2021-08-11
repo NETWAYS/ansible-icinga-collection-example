@@ -5,3 +5,7 @@
     - repos
     - geerlingguy.mysql
     - icinga2
+    - geerlingguy.apache
+    - mkayontour.icingaweb2
+  tasks:
+    - import_tasks: tasks/icingaweb2-schema.yml

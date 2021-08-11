@@ -65,3 +65,61 @@ icinga2_features:
     user: icinga2
     password: icinga2geheim
     import_schema: true
+
+icingaweb2_manage_repository: false
+icingaweb2_manage_centos_scl: false
+
+icingaweb2_resources:
+  icinga_ido:
+    type: db
+    db: mysql
+    host: localhost
+    dbname: icinga2
+    username: icinga2
+    password: icinga2geheim
+    charset: utf8
+  icingaweb_db:
+    type: db
+    db: mysql
+    host: localhost
+    dbname: icingaweb2
+    username: icingaweb2
+    password: icingaweb2geheim
+  director_db:
+    type: db
+    db: mysql
+    host: localhost
+    dbname: icinga_director
+    username: icinga_director
+    password: directorgeheim
+
+
+# TODO: add ldap example
+
+icingaweb2_authentication:
+  icingaweb2:
+    backend: db
+    resource: icingaweb_db
+
+icingaweb2_groups:
+  icingaweb2:
+    backend: db
+    resource: icingaweb_db
+
+icingaweb2_roles:
+  administrators:
+    users: icingaadmin
+    permissions: "*"
+    #groups:
+
+icingaweb2_monitoring_backends:
+  icinga:
+    type: ido
+    resource: icinga_ido
+icingaweb2_monitoring_commandtransports:
+  icinga2:
+    transport: api
+    host: localhost
+    port: 5665
+    username: icingaweb2
+    password: icingaweb2geheim

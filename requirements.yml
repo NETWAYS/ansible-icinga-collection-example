@@ -1,6 +1,10 @@
 roles:
   - name: geerlingguy.mysql
     version: 3.3.2
+  - name: geerlingguy.apache
+    version: 3.1.4
+  - name: mkayontour.icingaweb2
+    version: v1.1.0
 collections:
   - name: https://github.com/Icinga/ansible-collection-icinga.git
     type: git
