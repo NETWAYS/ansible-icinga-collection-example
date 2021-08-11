@@ -1,0 +1,7 @@
+- name: Add NETWAYS Packages extras
+  yum_repository:
+    name: NETWAYS-extras
+    description: NETWAYS extras for Icinga
+    baseurl: https://packages.netways.de/extras/epel/$releasever/
+    gpgcheck: yes
+    gpgkey: https://packages.netways.de/netways-repo.asc

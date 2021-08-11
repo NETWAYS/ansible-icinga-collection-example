@@ -1,15 +1,34 @@
 - hosts: icinga-server
   collections:
     - icinga.icinga
-  roles:
-    - repos
-    - geerlingguy.mysql
-    - icinga2
-    - geerlingguy.apache
-    - mkayontour.icingaweb2
   tasks:
+    # - include_role:
+    #     name: repos
+
+    # - include_role:
+    #     name: geerlingguy.mysql
+
+    # - include_role:
+    #     name: icinga2
+
+    # - include_role:
+    #     name: geerlingguy.apache
+    # - import_tasks: tasks/apache-redirect.yml
+
+    - include_role:
+        name: mkayontour.icingaweb2
     - import_tasks: tasks/icingaweb2-schema.yml
-    - import_tasks: tasks/apache-redirect.yml
+
+    # Icinga Director
+    - include_tasks: tasks/netways-packages.yml
+    - include_tasks: tasks/director.yml
+    - include_role:
+        name: mkayontour.icingaweb2
+        tasks_from: icingaweb2_manage_director
+    - include_role:
+        name: mkayontour.icingaweb2
+        tasks_from: icingaweb2_manage_director_service
+
   handlers:
     - name: reload httpd
       service:

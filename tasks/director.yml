@@ -1,0 +1,14 @@
+- name: Install Icinga Director
+  package:
+    name: icingaweb2-module-director
+    state: installed
+
+- name: Enable Icinga Director and dependency modules
+  command:
+    cmd: /usr/bin/icingacli module enable {{ item }}
+    creates: "/etc/icingaweb2/enabledModules/{{ item }}"
+  with_items:
+    - incubator
+    - ipl
+    - reactbundle
+    - director

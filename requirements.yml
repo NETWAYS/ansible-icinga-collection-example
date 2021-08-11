@@ -4,7 +4,8 @@ roles:
   - name: geerlingguy.apache
     version: 3.1.4
   - name: mkayontour.icingaweb2
-    version: v1.1.0
+    src: git+https://github.com/mkayontour/ansible-icingaweb2
+    version: master
 collections:
   - name: https://github.com/Icinga/ansible-collection-icinga.git
     type: git

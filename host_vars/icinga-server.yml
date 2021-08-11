@@ -91,7 +91,8 @@ icingaweb2_resources:
     host: localhost
     dbname: icinga_director
     username: icinga_director
-    password: directorgeheim
+    password: icingadirectorgeheim
+    charset: utf8
 
 
 # TODO: add ldap example
@@ -112,6 +113,9 @@ icingaweb2_roles:
     permissions: "*"
     #groups:
 
+icingaweb2_modules:
+  - name: monitoring
+
 icingaweb2_monitoring_backends:
   icinga:
     type: ido
@@ -123,3 +127,8 @@ icingaweb2_monitoring_commandtransports:
     port: 5665
     username: icingaweb2
     password: icingaweb2geheim
+
+icingaweb2_director_resource: director_db
+icingaweb2_director_kickstart_endpoint: 'icinga-server.localdomain"' # TODO: closing quote is a bug in role
+icingaweb2_director_kickstart_username: director
+icingaweb2_director_kickstart_password: directorgeheim
