@@ -1,0 +1,14 @@
+- name: Disable welcome config for Apache
+  copy:
+    dest: /etc/httpd/conf.d/welcome.conf
+    content: |
+      # Disabled by Ansible
+  notify: reload httpd
+
+- name: Add Apache redirect to icingaweb2
+  copy:
+    dest: /etc/httpd/conf.d/redirect.conf
+    content: |
+      # Managed by Ansible
+      RedirectMatch ^/$ /icingaweb2/
+  notify: reload httpd

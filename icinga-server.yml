@@ -9,3 +9,9 @@
     - mkayontour.icingaweb2
   tasks:
     - import_tasks: tasks/icingaweb2-schema.yml
+    - import_tasks: tasks/apache-redirect.yml
+  handlers:
+    - name: reload httpd
+      service:
+        name: httpd
+        state: reloaded
