@@ -1,0 +1,7 @@
+roles:
+  - name: geerlingguy.mysql
+    version: 3.3.2
+collections:
+  - name: https://github.com/Icinga/ansible-collection-icinga.git
+    type: git
+    version: cca72865a3ffac8515bf0aee8f6acba3a8446265 # current main 2021-08-11

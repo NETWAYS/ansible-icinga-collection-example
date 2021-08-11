@@ -1,0 +1,67 @@
+mysql_root_password: geheimgeheim
+mysql_databases:
+  - name: icinga2
+    encoding: utf8
+
+  - name: icingaweb2
+    encoding: utf8
+
+  - name: icinga_director
+    encoding: utf8
+
+mysql_users:
+  - name: icinga2
+    host: localhost
+    password: icinga2geheim
+    priv: 'icinga2.*:ALL'
+
+  - name: icingaweb2
+    host: localhost
+    password: icingaweb2geheim
+    priv: 'icingaweb2.*:ALL'
+
+  - name: icinga_director
+    host: localhost
+    password: icingadirectorgeheim
+    priv: 'icinga_director.*:ALL'
+
+icinga2_config_directories:
+  - local.d
+icinga2_confd: local.d
+icinga2_constants:
+  NodeName: icinga-server.localdomain
+
+tmp_objects: # TODO: needs to be fixed (mfrosch)
+  - name: icingaweb2
+    type: ApiUser
+    file: local.d/api-users.conf
+    password: icingaweb2geheim
+    permissions:
+      - '*'
+
+  - name: director
+    type: ApiUser
+    file: local.d/api-users.conf
+    password: directorgeheim
+    permissions:
+      - '*'
+
+icinga2_features:
+  - name: api
+    force_newcert: false
+    cert_name: icinga-server.localdomain
+    ca_host: 'none'
+    endpoints:
+      - name: NodeName
+    zones:
+      - name: ZoneName
+        endpoints:
+          - NodeName
+
+  - name: idomysql
+    host: localhost
+    port: 3306
+    database: icinga2
+    user: icinga2
+    password: icinga2geheim
+    import_schema: true

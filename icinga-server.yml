@@ -1,0 +1,7 @@
+- hosts: icinga-server
+  collections:
+    - icinga.icinga
+  roles:
+    - repos
+    - geerlingguy.mysql
+    - icinga2
