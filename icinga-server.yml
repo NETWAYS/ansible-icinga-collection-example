@@ -2,18 +2,18 @@
   collections:
     - icinga.icinga
   tasks:
-    # - include_role:
-    #     name: repos
+    - include_role:
+        name: repos
 
-    # - include_role:
-    #     name: geerlingguy.mysql
+    - include_role:
+        name: geerlingguy.mysql
 
-    # - include_role:
-    #     name: icinga2
+    - include_role:
+        name: icinga2
 
-    # - include_role:
-    #     name: geerlingguy.apache
-    # - import_tasks: tasks/apache-redirect.yml
+    - include_role:
+        name: geerlingguy.apache
+    - import_tasks: tasks/apache-redirect.yml
 
     - include_role:
         name: mkayontour.icingaweb2
