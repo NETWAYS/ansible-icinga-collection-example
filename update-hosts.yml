@@ -4,8 +4,6 @@
     - name: Create a hosts entry for each node
       lineinfile:
         path: /etc/hosts
-        line: "{{ hostvars[item+'.localdomain']['ansible_default_ipv4']['address'] }} {{ item }}.localdomain {{ item }}"
+        line: "{{ hostvars[item]['ansible_default_ipv4']['address'] }} {{ item }} {{ item | regex_replace('\\..*', '') }}"
         regexp: '{{ item }}'
-      with_items:
-        - icinga-server
-        - icinga-sat1
+      with_items: "{{ groups['all'] }}"
