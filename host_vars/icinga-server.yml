@@ -50,7 +50,10 @@ icinga2_features:
   - name: checker
   - name: notification
   - name: mainlog
+
   - name: api
+    accept_config: true
+    accept_commands: true
     force_newcert: false
     ca_host: 'none'
     endpoints:

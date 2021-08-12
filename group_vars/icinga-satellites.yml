@@ -7,6 +7,8 @@ icinga2_features:
   - name: notification
   - name: mainlog
   - name: api
+    accept_config: true
+    accept_commands: true
     force_newcert: false
     ca_host: icinga-server.localdomain  # Note: should be known to Ansible, as delegate_to is used
     endpoints:
