@@ -7,6 +7,12 @@ roles:
     src: git+https://github.com/mkayontour/ansible-icingaweb2
     version: master
 collections:
-  - name: https://github.com/Icinga/ansible-collection-icinga.git
-    type: git
-    version: cca72865a3ffac8515bf0aee8f6acba3a8446265 # current main 2021-08-11
+  - name: git+https://github.com/Icinga/ansible-collection-icinga.git
+    version: 70da11c9e7b82ebb439289f560b85f4b4537a47a # PR #52 - Improve compatibility for Ansible 2.9 and Python 3.6
+
+## or manually for Ansible < 2.10
+# mkdir -p $HOME/.ansible/collections/ansible_collections/icinga
+# cd $HOME/.ansible/collections/ansible_collections/icinga
+# git clone https://github.com/Icinga/ansible-collection-icinga.git icinga
+# cd icinga
+# git checkout -f 70da11c9e7b82ebb439289f560b85f4b4537a47a
