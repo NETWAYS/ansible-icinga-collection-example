@@ -21,3 +21,4 @@ icinga2_features:
       - name: sat1
         endpoints:
           - icinga-sat1.localdomain
+        parent: master
