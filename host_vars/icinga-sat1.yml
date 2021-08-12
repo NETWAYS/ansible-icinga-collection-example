@@ -1,3 +1,0 @@
-# Should only be needed for the testing environments without proper FQDNs
-icinga2_constants:
-  NodeName: icinga-sat1.localdomain

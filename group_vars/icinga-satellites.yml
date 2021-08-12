@@ -5,14 +5,12 @@ icinga2_confd: local.d
 icinga2_features:
   - name: api
     force_newcert: false
-    # Should only be needed for the testing environments without proper FQDNs
-    cert_name: icinga-sat1.localdomain
-    ca_host: 10.0.0.1  # Note: should be known to Ansible, as delegate_to is used
+    ca_host: icinga-server.localdomain  # Note: should be known to Ansible, as delegate_to is used
     endpoints:
       - name: icinga-server.localdomain
-        host: 10.0.0.1
+        host: icinga-server.localdomain
       - name: icinga-sat1.localdomain
-        host: 10.0.0.2
+        host: icinga-sat1.localdomain
     zones:
       - name: master
         endpoints:
