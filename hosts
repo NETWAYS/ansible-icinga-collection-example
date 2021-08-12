@@ -1,5 +1,5 @@
 [all]
-icinga-server
+icinga-server.localdomain
 
 [icinga-satellites]
-icinga-sat1
+icinga-sat1.localdomain

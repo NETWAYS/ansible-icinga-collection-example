@@ -1,4 +1,4 @@
-- hosts: icinga-server
+- hosts: icinga-server.localdomain
   collections:
     - icinga.icinga
   tasks:
