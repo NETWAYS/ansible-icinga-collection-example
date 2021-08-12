@@ -6,6 +6,7 @@ icinga2_features:
   - name: checker
   - name: notification
   - name: mainlog
+
   - name: api
     accept_config: true
     accept_commands: true
@@ -24,3 +25,5 @@ icinga2_features:
         endpoints:
           - icinga-sat1.localdomain
         parent: master
+      - name: director-global
+        global: true

@@ -69,6 +69,8 @@ icinga2_features:
         endpoints:
           - icinga-sat1.localdomain
         parent: master
+      - name: director-global
+        global: true
 
   - name: idomysql
     host: localhost
