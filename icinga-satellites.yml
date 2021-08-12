@@ -3,6 +3,7 @@
   collections:
     - icinga.icinga
   tasks:
+    # Using Icinga and NETWAYS repositories directly here
     - include_role:
         name: repos
 

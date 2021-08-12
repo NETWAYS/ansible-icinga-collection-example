@@ -2,8 +2,10 @@
   collections:
     - icinga.icinga
   tasks:
+    # Using Icinga and NETWAYS repositories directly here
     - include_role:
         name: repos
+    - include_tasks: tasks/netways-packages.yml
 
     - include_role:
         name: geerlingguy.mysql
@@ -20,7 +22,6 @@
     - import_tasks: tasks/icingaweb2-schema.yml
 
     # Icinga Director
-    - include_tasks: tasks/netways-packages.yml
     - include_tasks: tasks/director.yml
     - include_role:
         name: mkayontour.icingaweb2
