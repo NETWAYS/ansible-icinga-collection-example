@@ -1,0 +1,28 @@
+- name: Install some nagios-plugins for RedHat
+  package:
+    name:
+      #- nagios-plugins-all
+      - nagios-plugins-by_ssh
+      - nagios-plugins-dig
+      - nagios-plugins-disk
+      - nagios-plugins-dns
+      - nagios-plugins-dummy
+      - nagios-plugins-file_age
+      - nagios-plugins-http
+      - nagios-plugins-icmp
+      - nagios-plugins-load
+      - nagios-plugins-mailq
+      #- nagios-plugins-nrpe
+      - nagios-plugins-ntp
+      - nagios-plugins-ping
+      - nagios-plugins-procs
+      - nagios-plugins-smtp
+      - nagios-plugins-snmp
+      - nagios-plugins-ssh
+      - nagios-plugins-swap
+      - nagios-plugins-tcp
+      - nagios-plugins-time
+      - nagios-plugins-uptime
+      - nagios-plugins-users
+    state: installed
+  when: ansible_os_family == 'RedHat'

@@ -12,6 +12,7 @@
 
     - include_role:
         name: icinga2
+    - include_tasks: tasks/plugins.yml
 
     - include_role:
         name: geerlingguy.apache

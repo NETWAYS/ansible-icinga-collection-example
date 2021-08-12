@@ -1,7 +1,24 @@
-- name: Add NETWAYS Packages extras
+- name: Add NETWAYS Packages extras for RedHat
   yum_repository:
     name: NETWAYS-extras
     description: NETWAYS extras for Icinga
     baseurl: https://packages.netways.de/extras/epel/$releasever/
     gpgcheck: yes
     gpgkey: https://packages.netways.de/netways-repo.asc
+  when: ansible_os_family == 'RedHat'
+
+
+- name: Add NETWAYS Packages plugins for RedHat
+  yum_repository:
+    name: NETWAYS-plugins
+    description: NETWAYS plugins for Icinga
+    baseurl: https://packages.netways.de/plugins/epel/$releasever/
+    gpgcheck: yes
+    gpgkey: https://packages.netways.de/netways-repo.asc
+  when: ansible_os_family == 'RedHat'
+
+- name: Install epel-release on CentOS
+  package:
+    name: epel-release
+    state: installed
+  when: ansible_distribution == 'CentOS'
