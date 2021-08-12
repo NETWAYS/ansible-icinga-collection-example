@@ -47,6 +47,9 @@ tmp_objects: # TODO: needs to be fixed (mfrosch)
       - '*'
 
 icinga2_features:
+  - name: checker
+  - name: notification
+  - name: mainlog
   - name: api
     force_newcert: false
     ca_host: 'none'

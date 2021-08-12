@@ -3,6 +3,9 @@ icinga2_config_directories:
 icinga2_confd: local.d
 
 icinga2_features:
+  - name: checker
+  - name: notification
+  - name: mainlog
   - name: api
     force_newcert: false
     ca_host: icinga-server.localdomain  # Note: should be known to Ansible, as delegate_to is used
