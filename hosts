@@ -1,2 +1,5 @@
 [all]
 icinga-server
+
+[icinga-satellites]
+icinga-sat1

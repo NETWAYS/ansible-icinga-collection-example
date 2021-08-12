@@ -29,7 +29,8 @@ icinga2_config_directories:
   - local.d
 icinga2_confd: local.d
 icinga2_constants:
-  NodeName: icinga-server.localdomain
+  NodeName: icinga-server.localdomain  # Should only be needed for the testing environments without proper FQDNs
+  TicketSalt: geheimgeheim
 
 tmp_objects: # TODO: needs to be fixed (mfrosch)
   - name: icingaweb2
@@ -49,14 +50,21 @@ tmp_objects: # TODO: needs to be fixed (mfrosch)
 icinga2_features:
   - name: api
     force_newcert: false
+    # Should only be needed for the testing environments without proper FQDNs
     cert_name: icinga-server.localdomain
     ca_host: 'none'
     endpoints:
-      - name: NodeName
+      - name: icinga-server.localdomain
+        host: 10.0.0.1
+      - name: icinga-sat1.localdomain
+        host: 10.0.0.2
     zones:
-      - name: ZoneName
+      - name: master
         endpoints:
-          - NodeName
+          - icinga-server.localdomain
+      - name: sat1
+        endpoints:
+          - icinga-sat1.localdomain
 
   - name: idomysql
     host: localhost

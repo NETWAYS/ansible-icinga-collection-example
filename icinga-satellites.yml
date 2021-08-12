@@ -1,0 +1,10 @@
+- hosts:
+    - icinga-satellites
+  collections:
+    - icinga.icinga
+  tasks:
+    - include_role:
+        name: repos
+
+    - include_role:
+        name: icinga2
