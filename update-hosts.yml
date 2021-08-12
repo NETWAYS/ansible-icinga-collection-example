@@ -1,0 +1,11 @@
+- name: Update /etc/hosts so we won't need any DNS
+  hosts: all
+  tasks:
+    - name: Create a hosts entry for each node
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ hostvars[item+'.localdomain']['ansible_default_ipv4']['address'] }} {{ item }}.localdomain {{ item }}"
+        regexp: '{{ item }}'
+      with_items:
+        - icinga-server
+        - icinga-sat1
